@@ -11,9 +11,11 @@ struct App {
         let sentiment = sentiment(for: text)
         print("Sentiment analysis: \(sentiment)")
         
+        let lemma = lemmatize(string: text)
+        
         print()
         print("Found the following alternatives:")
-        for word in text.components(separatedBy: " ") {
+        for word in lemma {
             let embeddings = embeddings(for: word)
             print("\t\(word): ", embeddings.formatted(.list(type: .and)))
         }
@@ -36,6 +38,25 @@ struct App {
             for word in similarWords {
                 results.append("\(word.0) has a distance of \(word.1)")
             }
+        }
+        
+        return results
+    }
+    
+    static func lemmatize(string: String) -> [String] {
+        let tagger = NLTagger(tagSchemes: [.lemma])
+        tagger.string = string
+        
+        var results = [String]()
+        
+        tagger.enumerateTags(in: string.startIndex..<string.endIndex, unit: .word, scheme: .lemma) { tag, range in
+            let stemForm = tag?.rawValue ?? String(string[range]).trimmingCharacters(in: .whitespaces)
+            
+            if stemForm.isEmpty == false {
+                results.append(stemForm)
+            }
+            
+            return true
         }
         
         return results
