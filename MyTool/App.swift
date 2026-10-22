@@ -7,6 +7,10 @@ struct App {
         let text = CommandLine.arguments.dropFirst().joined(separator: " ")
         print(text)
         
+        let language = language(for: text)
+        print()
+        print("Detected language: \(language.rawValue)")
+        
         print()
         let sentiment = sentiment(for: text)
         print("Sentiment analysis: \(sentiment)")
@@ -60,5 +64,10 @@ struct App {
         }
         
         return results
+    }
+    
+    static func language(for string: String) -> NLLanguage {
+        return NLLanguageRecognizer.dominantLanguage(for:
+        string) ?? .undetermined
     }
 }
