@@ -6,14 +6,18 @@
 	objectVersion = 90;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		16EA74A5308A65B6000F9BB7 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 16EA74A4308A65B6000F9BB7 /* ArgumentParser */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		000000000000000000000120 /* MyTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MyTool; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		000000000000000000000010 /* MyTool */ = {
+		000000000000000000000010 /* TextParser */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MyTool;
+			path = TextParser;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -22,6 +26,7 @@
 		000000000000000130000000 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				16EA74A5308A65B6000F9BB7 /* ArgumentParser in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -30,7 +35,7 @@
 		000000000000000000000001 = {
 			isa = PBXGroup;
 			children = (
-				000000000000000000000010 /* MyTool */,
+				000000000000000000000010 /* TextParser */,
 				000000000000000000000020 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,9 +61,12 @@
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				000000000000000000000010 /* MyTool */,
+				000000000000000000000010 /* TextParser */,
 			);
 			name = MyTool;
+			packageProductDependencies = (
+				16EA74A4308A65B6000F9BB7 /* ArgumentParser */,
+			);
 			productName = Tool;
 			productReference = 000000000000000000000120 /* MyTool */;
 			productType = "com.apple.product-type.tool";
@@ -87,6 +95,9 @@
 			);
 			mainGroup = 000000000000000000000001;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				16EA74A3308A65B6000F9BB7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 000000000000000000000020 /* Products */;
 			projectDirPath = "";
@@ -288,6 +299,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16EA74A3308A65B6000F9BB7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16EA74A4308A65B6000F9BB7 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16EA74A3308A65B6000F9BB7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 000000000000000000000000 /* Project object */;
 }
